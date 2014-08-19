@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!-- 日志组件启动时，打印调试信息，并监控此文件变化，周期60秒 -->
+<configuration scan="true" scanPeriod="60 seconds" debug="true">
+	<!-- 针对jul的性能优化 -->
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+		<resetJUL>true</resetJUL>
+	</contextListener>
+	
+	<!-- 项目名称及日志目录定义 -->
+	<property name="PROJECT_NAME" value="quickf" />
+	<property name="LOG_HOME" value="/var/log/webapps/${PROJECT_NAME}" />
+	
+	<contextName>${CONTEXT_NAME}</contextName>
+	
+	<!-- ===================================================================== -->
+	<!-- 以下是appender的定义 -->
+	<!-- ===================================================================== -->
+
+    <appender name="DEBUG-APPENDER"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Encoding>UTF-8</Encoding>
+        <file>/var/log/webapps/${PROJECT_NAME}/${PROJECT_NAME}.debug.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>/var/log/webapps/${PROJECT_NAME}/${PROJECT_NAME}.debug.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>1024MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+            </pattern>
+        </layout>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="INFO-APPENDER"  class="ch.qos.logback.core.rolling.RollingFileAppender">   
+        <Encoding>UTF-8</Encoding>  
+        <file>/var/log/webapps/${PROJECT_NAME}/${PROJECT_NAME}.daily.log</file> 
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>/var/log/webapps/${PROJECT_NAME}/${PROJECT_NAME}.daily.%d{yyyy-MM-dd}.log</FileNamePattern>   
+            <MaxHistory>30</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>1024MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy> 
+        </rollingPolicy>   
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n   
+            </pattern>   
+       </layout> 
+    </appender> 
+
+	<appender name="WARN-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Encoding>UTF-8</Encoding>
+        <file>/var/log/webapps/${PROJECT_NAME}/${PROJECT_NAME}.warn.log</file>    
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>/var/log/webapps/${PROJECT_NAME}/${PROJECT_NAME}.warn.%d{yyyy-MM-dd}.log</FileNamePattern>   
+            <MaxHistory>30</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>1024MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy> 
+        </rollingPolicy>   
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n   
+            </pattern>   
+       </layout> 
+       <filter class="ch.qos.logback.classic.filter.LevelFilter">
+		   <level>WARN</level>
+		   <onMatch>ACCEPT</onMatch>
+		   <onMismatch>DENY</onMismatch>
+  	   </filter>
+	</appender>
+
+	<appender name="ERROR-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Encoding>UTF-8</Encoding>   
+        <file>/var/log/webapps/${PROJECT_NAME}/${PROJECT_NAME}.error.log</file> 
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>/var/log/webapps/${PROJECT_NAME}/${PROJECT_NAME}.error.%d{yyyy-MM-dd}.log</FileNamePattern>   
+            <MaxHistory>30</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>1024MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy> 
+        </rollingPolicy>   
+        <layout class="ch.qos.logback.classic.PatternLayout">  
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符--> 
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n   
+            </pattern>   
+       </layout> 
+       <filter class="ch.qos.logback.classic.filter.LevelFilter">
+		   <level>ERROR</level>
+		   <onMatch>ACCEPT</onMatch>
+		   <onMismatch>DENY</onMismatch>
+  	   </filter>
+	</appender>
+
+	<!-- ===================================================================== -->
+	<!-- Root logger的定义 -->
+	<!-- ===================================================================== -->
+	<root level="DEBUG">
+        <appender-ref ref="DEBUG-APPENDER" />
+		<appender-ref ref="INFO-APPENDER" />
+		<appender-ref ref="WARN-APPENDER" />
+		<appender-ref ref="ERROR-APPENDER" />
+	</root>
+</configuration>

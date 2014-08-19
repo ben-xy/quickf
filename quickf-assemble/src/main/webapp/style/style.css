@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+@import url("base.css");
+html{font-size:62.5%;/*10 ÷ 16 × 100% = 62.5%*/}
+body{font-size:1.2rem;/*1.2 × 10px = 12px */}
+a{color:#3298d6; outline:none;}
+a:hover{text-decoration:none;}
+
+.top{ width:100%; height:5.2rem; background:url(image/body_bg.jpg) left top repeat-x; border-bottom:1px #5d656a solid; position:fixed; top:0; left:0; z-index:9;}
+.top .return{ float:left; display:block; margin:0; width:4.2rem; height:5.2rem; text-align:center; background:url(image/return_icon.png) center center no-repeat; margin-left:0.5rem;}
+.top h1{ width:70%; margin:0 auto; text-align:center; line-height:5.2rem; font-family:Microsoft Yahei; font-size:2rem; color:#fff; }
+
+.bottom{ width:100%; height:4.6rem; background:#303539 url(image/bottom_bg.jpg) repeat-x 0 0; padding:1.6rem 0 0; position:fixed; bottom:0; left:0; z-index:9;}
+.bt-icon{ width:100%; height:4.6rem; background:url(image/footer_icon.jpg) no-repeat center center;}
+
+.order-info{ height:6.2rem; line-height:2rem; padding:0 1.2rem; border-bottom:1px #5d656a solid; font-family:Microsoft Yahei; font-size:1.4rem; color:#1abc9c; margin-top:5.2rem; background:url(image/body_bg.jpg) left top repeat-x;}
+.order-info .od-num{ padding-top:1rem; word-wrap:break-word; white-space:normal; word-break:break-all;}
+.order-info .od-price{ font-size:2.4rem; line-height:2.4rem;}
+.p-form{ background:#fff; padding:3.2rem 1rem 7.2rem;}
+.p-form p{ padding:0 0 1rem 0; text-align:center; }
+.p-form .inp{ width:95.8%; height:5.4rem; background:#eeeded; font-size:1.6rem; padding:0 2%; color:#666; font-family:Microsoft Yahei; border-radius:0.5em; border:1px #fff solid; box-shadow:0 0.3rem 0.2rem #999 inset;}
+.p-form .inp:focus{ background:#daece9; border:1px #1abc9c solid; color:#666; }
+.p-form .p-query{ padding:0 1rem 1rem; font-size:1.4rem; font-family:Microsoft Yahei;}
+.p-form .p-query .f-blue{ color:#1abc9c; cursor:pointer;}
+.p-form .p-query .f-orange{ color:#fa5800;}
+.p-form .btn_sub{ border:none; width:100%; height:5.6rem; line-height:5.6rem; padding:0; font-size:2rem; color:#fff; font-family:Microsoft Yahei; cursor:pointer; border-radius:0.5rem; box-shadow:0 0.2rem 0.2rem #999; background:#1abc9c;}
+.p-form .btn_suc{ background:#00bad6;}
+.p-form .btn_sub:hover{ background:#5dbfac;}
+.p-form .tip{ line-height:2.4rem; font-size:1.4rem; color:#8a8a8a; font-family:Microsoft Yahei; padding:0 1.2rem 2rem;}
+.p-form .tip a{ color:#1abc9c;}
+.p-form .cprt{ color:#8a8a8a; font-size:1.4rem; font-family:Microsoft Yahei;}
+
+.p-info{ padding:1.2rem 1rem 0;}
+.p-info p{ padding-bottom:1rem;}
+.p-form .bank{ height:5.4rem; line-height:5.4rem; background:#eeeded; font-size:1.6rem; padding:0 2%; color:#666; font-family:Microsoft Yahei; border-radius:0.5rem; border:1px #fff solid; box-shadow:0 0.3rem 0.2rem #999 inset; position:relative; cursor:pointer; margin:0 auto 1rem;}
+.p-form .bank:hover , .p-form .look:hover{ background:#daece9; border:1px #1abc9c solid; color:#666; }
+.p-form .bank h3{ color:#666; font-size:1.4rem; font-family:Microsoft Yahei;}
+.p-form .bank .b_num{ padding:0; position:absolute; right:1rem; top:0; }
+.p-form .bank .b_num strong{ display:inline; font-size:1.4rem; font-family:Microsoft Yahei; font-weight:normal;}
+
+.p-info .look{ height:5.4rem; line-height:5.4rem; background:#eeeded; font-size:1.6rem; padding:0 4% 0 2%; color:#666; font-family:Microsoft Yahei; border-radius:.5rem; border:1px #fff solid; box-shadow:0 0.3rem 0.2rem #999 inset; position:relative; cursor:pointer; margin:0 auto 1rem;}
+.p-info .look h3{ color:#2d2e31; font-size:1.4rem; font-family:Microsoft Yahei; background:url(image/look_icon1.png) no-repeat right center;}
+
+.p-form h4{ text-align:left; color:#2d2e31; font-size:1.4rem; font-family:Microsoft Yahei; padding:0 0.7rem 1rem;}
+.p-info .tip{ line-height:1.8rem; padding-bottom:1rem;}
+
+/*.p-form .plr15{ padding:0 0.7rem 1rem;}*/
+.p-form .w70{ width:60%;}
+.p-form .btn_d{ border:none; width:32%; height:5.2rem; line-height:5.2rem; border-radius:0.5rem; font-size:1.6rem; color:#fff; font-family:Microsoft Yahei; cursor:pointer; border:1px #454649 solid; box-shadow:0 0.1rem 0 #fff inset; background-color:#454649;
+		  background:-moz-linear-gradient(top, #4d4d51,#2b2b2e);
+		  background:-webkit-linear-gradient(top, #4d4d51,#2b2b2e);
+		  background:-o-linear-gradient(top, #4d4d51,#2b2b2e); }
+
+.p-form .cbox{ display:block; text-align:left; font-size:1.4rem; font-family:Microsoft Yahei; color:#333; }
+.p-form .cbox .cb{ width:1.8rem; height:1.8rem; background:url(image/cb_icon1.jpg) no-repeat 0 0; display:inline-block; position:relative; top:0.4rem;}
+.p-form .cbox .cur-cb{ background:url(image/cb_icon2.jpg) no-repeat 0 0; cursor:default;}
+.p-form .safe-pw{ text-align:left; font-size:1.2rem; color:#8a8a8a; font-family:Microsoft Yahei;}
+.p-form .input-pw{ height:5.5rem; line-height:5.5rem; background:#eeeded; font-size:1.6rem; padding:3px 1px 0; color:#666; font-family:Microsoft Yahei; border-radius:0.5rem; border:1px #fff solid; box-shadow:0 0.3rem 0.2rem #999 inset; position:relative; cursor:pointer; margin:0 auto 1rem;}
+.p-form .input-pw span{ float:left; width:14.1%; height:5.5rem; text-align:center; border-right:1px #d5d5d5 solid; display:inline-block;}
+.p-form .input-pw span.no{ border-right:none;}
+.p-form .look-deal{ text-align:right; color:#1abc9c; font-size:1.4rem; font-family:Microsoft Yahei; padding:0 0.7rem 1rem;}
+.p-form .look-deal a{ color:#1abc9c;}
+/*明细*/
+.detail-list{ background:#fff; font-family:Microsoft Yahei; padding:5.3rem 0 7.2rem;}
+.detail-list li{padding:1rem 1.1rem; border-bottom:0.1rem solid #c7d0d6; font-size:1.4rem;}
+.detail-list .card-name{ color:#333; font-size:1.6rem;}
+.detail-list .limit{ color:#1abc9c; font-size:1.4rem;}
+.detail-list p span{display:inline-block; line-height:2.4rem;}
+.detail-list p span.w44{width:44%;}
+.detail-list p span.w52{width:52%; text-align:right;}
+
